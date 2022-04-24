@@ -10,9 +10,7 @@ public class ThreadLocalTest {
         // inheritableThreadLocal
         inheritableThreadLocal.set("我是主线程");
         System.out.println(inheritableThreadLocal.get() + Thread.currentThread().getName());
-        new Thread(() -> {
-            System.out.println(inheritableThreadLocal.get() + Thread.currentThread().getName());
-        }).start();
+        new Thread(() -> System.out.println(inheritableThreadLocal.get() + Thread.currentThread().getName())).start();
 
         // threadLocal
         threadLocal.set("thread local main thread");

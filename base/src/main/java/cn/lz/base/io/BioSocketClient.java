@@ -34,14 +34,14 @@ public class BioSocketClient {
 class ClientRequestThread implements Runnable {
 
 
-    private CountDownLatch countDownLatch;
+    private final CountDownLatch countDownLatch;
 
     /**
      * 这个线程的编号
      *
      * @param countDownLatch
      */
-    private Integer clientIndex;
+    private final Integer clientIndex;
 
     /**
      * countDownLatch是java提供的同步计数器。
@@ -77,13 +77,13 @@ class ClientRequestThread implements Runnable {
             int maxLen = 1024;
             byte[] contextBytes = new byte[maxLen];
             int realLen;
-            String message = "";
+            StringBuilder message = new StringBuilder();
             //程序执行到这里，会一直等待服务器返回信息（注意，前提是in和out都不能close，如果close了就收不到服务器的反馈了）
             while ((realLen = clientResponse.read(contextBytes, 0, maxLen)) != -1) {
-                message += new String(contextBytes, 0, realLen);
+                message.append(new String(contextBytes, 0, realLen));
             }
             //String messageEncode = new String(message , "UTF-8");
-            message = URLDecoder.decode(message, "UTF-8");
+            message = new StringBuilder(URLDecoder.decode(message.toString(), "UTF-8"));
             System.out.println("第" + this.clientIndex + "个客户端接收到来自服务器的信息:" + message);
         } catch (Exception e) {
 

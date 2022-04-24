@@ -7,15 +7,12 @@ public class ThreadTest {
         String name = ManagementFactory.getRuntimeMXBean().getName();
         System.out.println("pid " + name);
         new Thread(() -> {
-            while (true) {}
+            while (true) {
+            }
         }, "thread1").start();
 
-        new Thread(() -> {
-            System.out.println("hello " + Thread.currentThread().getName());
-        }, "thread2").start();
+        new Thread(() -> System.out.println("hello " + Thread.currentThread().getName()), "thread2").start();
 
-        new Thread(() -> {
-            System.out.println("hello " + Thread.currentThread().getName());
-        }, "thread2").start();
+        new Thread(() -> System.out.println("hello " + Thread.currentThread().getName()), "thread2").start();
     }
 }

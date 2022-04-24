@@ -10,17 +10,13 @@ public class MapTest {
         linkedHashMap.put("h2", "h2");
         linkedHashMap.put("h1", "h1");
         linkedHashMap.put("h0", "h0");
-        linkedHashMap.forEach((k, v) -> {
-            System.out.printf("k: %s; v: %s\n", k, v);
-        });
+        linkedHashMap.forEach((k, v) -> System.out.printf("k: %s; v: %s\n", k, v));
         System.out.println("==========");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("h3", "h3");
         hashMap.put("h2", "h2");
         hashMap.put("h1", "h1");
         hashMap.put("h0", "h0");
-        hashMap.forEach((k, v) -> {
-            System.out.printf("k: %s; v: %s\n", k, v);
-        });
+        hashMap.forEach((k, v) -> System.out.printf("k: %s; v: %s\n", k, v));
     }
 }

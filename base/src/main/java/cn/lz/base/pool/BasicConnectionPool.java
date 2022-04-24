@@ -11,11 +11,11 @@ import java.util.List;
 @Slf4j
 public class BasicConnectionPool implements ConnectionPool {
 
-    private String url;
-    private String user;
-    private String password;
-    private List<Connection> connectionPool;
-    private List<Connection> usedConnections = new ArrayList<>();
+    private final String url;
+    private final String user;
+    private final String password;
+    private final List<Connection> connectionPool;
+    private final List<Connection> usedConnections = new ArrayList<>();
 
     public BasicConnectionPool(String url, String user, String password, List<Connection> connectionPool, int size) throws SQLException {
         this.url = url;

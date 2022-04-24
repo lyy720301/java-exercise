@@ -40,7 +40,7 @@ public class NonBlockingNIOClient {
 
         while (scan.hasNext()) {
             String str = scan.next();
-            buf.put((new Date().toString() + "\n" + str).getBytes());
+            buf.put((new Date() + "\n" + str).getBytes());
             buf.flip();
             sChannel.write(buf);
             buf.clear();

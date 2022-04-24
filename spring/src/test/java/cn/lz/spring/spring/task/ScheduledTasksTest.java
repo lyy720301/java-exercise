@@ -18,7 +18,6 @@ package cn.lz.spring.spring.task;
 
 import cn.lz.spring.task.ScheduledTasks;
 import org.awaitility.Durations;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 

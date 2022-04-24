@@ -15,9 +15,9 @@ import java.util.Map;
  */
 public class Server {
 
-    private ByteBuffer buffer = ByteBuffer.allocate(1024 * 1024);
+    private final ByteBuffer buffer = ByteBuffer.allocate(1024 * 1024);
     //使用Map保存每个连接，当OP_READ就绪时，根据key找到对应的文件对其进行写入。若将其封装成一个类，作为值保存，可以再上传过程中显示进度等等
-    Map<SelectionKey, FileChannel> fileMap = new HashMap<SelectionKey, FileChannel>();
+    Map<SelectionKey, FileChannel> fileMap = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         Server server = new Server();
