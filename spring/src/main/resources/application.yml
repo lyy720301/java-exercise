@@ -1,0 +1,37 @@
+entity:
+  order:
+    description: properties_test1
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        boot:
+          autoconfigure: info
+    com:
+      example:
+        demo:
+          spring:
+            dao:
+              debug
+
+server:
+  port: 8087
+spring:
+  datasource:
+    name: java_demo
+    url: jdbc:mysql://129.226.173.133:3306/java_demo?useSSL=false
+    username: root
+    password: Lyy780808#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    view:
+      suffix: .html
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.H2Dialect
+mybatis:
+  type-aliases-package: cn.lz.spring.po
+  mapper-locations: classpath:mapper/*.xml
