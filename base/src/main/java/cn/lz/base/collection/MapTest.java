@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.function.BiFunction;
 
 public class MapTest {
+
     public static void main(String[] args) {
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
         linkedHashMap.put("h3", "h3");
