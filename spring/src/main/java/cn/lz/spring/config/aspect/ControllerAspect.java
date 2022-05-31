@@ -29,12 +29,14 @@ public class ControllerAspect {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Before("cn.lz.spring.config.aspect.CommonJoinPointConfig.allControllerExecution()" +
-            "&& cn.lz.spring.config.aspect.CommonJoinPointConfig.anyPublicOperation()")
+            "&& cn.lz.spring.config.aspect.CommonJoinPointConfig.anyPublicOperation()" +
+            "&& !execution(public * cn.lz.spring.controller.AdviceAopController.*(..))")
     public void beforeController() {
     }
 
     @Around("cn.lz.spring.config.aspect.CommonJoinPointConfig.allControllerExecution()" +
-            "&& cn.lz.spring.config.aspect.CommonJoinPointConfig.anyPublicOperation()")
+            "&& cn.lz.spring.config.aspect.CommonJoinPointConfig.anyPublicOperation()" +
+            "&& !execution(public * cn.lz.spring.controller.AdviceAopController.*(..))")
     public Object printControllerLog(ProceedingJoinPoint pjp) throws Throwable {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         String uri = request.getRequestURI();
