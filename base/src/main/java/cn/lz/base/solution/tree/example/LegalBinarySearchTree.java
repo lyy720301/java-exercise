@@ -9,16 +9,20 @@ import java.util.List;
 /**
  * 判断是否是二叉搜索树
  */
-public class IsBalanceTree {
+public class LegalBinarySearchTree {
 
     public static void main(String[] args) {
         // false
         TreeNode falseTree = TreeUtil.createTreeByArray(new Integer[]{5, 2, 6, 1, 9});
-        System.out.println(isBalance(falseTree));
+        System.out.println(isLegalBinarySearch(falseTree));
 
         pre = null;
         TreeNode trueTree = TreeUtil.createTreeByArray(new Integer[]{5, 2, 6, 1, 3});
-        System.out.println(isBalance(trueTree));
+        System.out.println(isLegalBinarySearch(trueTree));
+
+        pre = null;
+        TreeNode treeTree1 = TreeUtil.createTreeByString("[5,2,6,1,3]");
+        System.out.println(isLegalBinarySearch(treeTree1));
     }
 
     // 这里pre需要是全局变量，只有这样才能保证pre被访问的顺序
@@ -28,18 +32,18 @@ public class IsBalanceTree {
      * 使用递归的方式
      * 力扣上一种不错的解法
      */
-    public static boolean isBalance(TreeNode node) {
+    public static boolean isLegalBinarySearch(TreeNode node) {
         if (node == null) {
             return true;
         }
-        if (!isBalance(node.left)) {
+        if (!isLegalBinarySearch(node.left)) {
             return false;
         }
         if (pre != null && node.val < pre) {
             return false;
         }
         pre = node.val;
-        return isBalance(node.right);
+        return isLegalBinarySearch(node.right);
     }
 
     private static boolean isBalance2(TreeNode node) {

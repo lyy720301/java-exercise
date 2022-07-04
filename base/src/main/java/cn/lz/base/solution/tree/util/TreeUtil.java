@@ -3,6 +3,7 @@ package cn.lz.base.solution.tree.util;
 import cn.lz.base.solution.tree.TreeNode;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 public class TreeUtil {
@@ -14,6 +15,24 @@ public class TreeUtil {
         assert treeByArray.right != null && treeByArray.right.val == 2;
         assert treeByArray.right.left != null && treeByArray.right.left.val == 3;
         assert treeByArray.right.right != null && treeByArray.right.right.val == 4;
+    }
+
+    /**
+     * 根据如下格式字符串创建树
+     * [1,2,2,3,4,4,3]
+     * [1,2,2,null,3,null,3]
+     */
+    public static TreeNode createTreeByString(String str) {
+        String[] strArr = str.substring(1, str.length() - 1).split(",");
+        Integer[] arr = new Integer[strArr.length];
+        for (int i = 0; i < strArr.length; i++) {
+            if (Objects.equals(strArr[i], "null")) {
+                arr[i] = null;
+                continue;
+            }
+            arr[i] = Integer.parseInt(strArr[i]);
+        }
+        return createTreeByArray(arr);
     }
 
     /**
