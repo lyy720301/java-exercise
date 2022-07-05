@@ -46,7 +46,7 @@ public class LegalBinarySearchTree {
         return isLegalBinarySearch(node.right);
     }
 
-    private static boolean isBalance2(TreeNode node) {
+    private static boolean isLegalBinarySearch2(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         iterator(node, res);
         final Integer[] max = {null};

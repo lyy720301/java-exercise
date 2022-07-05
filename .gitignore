@@ -2,6 +2,10 @@
 
 **/target
 
+**/log
+
+**/logs
+
 *.log
 
 *.iml
